@@ -1,0 +1,9 @@
+﻿{
+  "Network": 1,
+  "DAppRadarUrl": "https://dappradar.com/",
+  "MagicStoreUrl": "https://magic.store/",
+  //Prometheus server and port
+  "Server": "127.0.0.1",
+  "Port": "8080",
+  "IgThread": "0"
+}
