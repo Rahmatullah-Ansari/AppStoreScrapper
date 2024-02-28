@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStoreScarpper", "AppStoreScarpper.csproj", "{10246DCC-1C21-4044-AC41-7921C73E2487}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppStoreScraperSetup", "..\AppStoreScraperSetup\AppStoreScraperSetup.vdproj", "{F4A15DF4-05C2-4B54-8320-8033E104296F}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppStoreScraperSetup", "..\AppStoreScraperSetup\AppStoreScraperSetup.vdproj", "{74D026DE-AB4A-45C2-85B8-5B1DFE05ED18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{10246DCC-1C21-4044-AC41-7921C73E2487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10246DCC-1C21-4044-AC41-7921C73E2487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10246DCC-1C21-4044-AC41-7921C73E2487}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4A15DF4-05C2-4B54-8320-8033E104296F}.Debug|Any CPU.ActiveCfg = Debug
-		{F4A15DF4-05C2-4B54-8320-8033E104296F}.Release|Any CPU.ActiveCfg = Release
+		{74D026DE-AB4A-45C2-85B8-5B1DFE05ED18}.Debug|Any CPU.ActiveCfg = Debug
+		{74D026DE-AB4A-45C2-85B8-5B1DFE05ED18}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
