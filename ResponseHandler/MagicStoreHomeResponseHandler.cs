@@ -9,7 +9,6 @@ namespace AppStoreScarpper.ResponseHandler
     public class MagicStoreHomeResponseHandler:ResponseHandler
     {
         public List<string> SeeAllLinks = new List<string>();
-        public readonly JsonParser parser = JsonParser.GetInstance;
         public MagicStoreHomeResponseHandler(IResponseParameter responseParameter)
         {
             if (responseParameter == null|| string.IsNullOrEmpty(responseParameter.Response)) return;
