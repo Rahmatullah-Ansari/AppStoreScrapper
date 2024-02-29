@@ -1,5 +1,4 @@
 ﻿using AppStoreScarpper.Enums;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +17,7 @@ namespace AppStoreScarpper.Utilities
 
         public static string DappRadarUrl= "https://dappradar.com/";
         public static string MagicStoreUrl= "https://magic.store/";
+        public static string ServerAPIUrl= "";
         public static string Server="";
         public static int Port=8080;
     }

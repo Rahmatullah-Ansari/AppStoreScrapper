@@ -174,6 +174,7 @@
     <Compile Include="Interface\IRequestHelper.cs" />
     <Compile Include="Interface\IRequestParameters.cs" />
     <Compile Include="Interface\IResponseParameter.cs" />
+    <Compile Include="Models\AppDetailsPostData.cs" />
     <Compile Include="Models\AppReviews.cs" />
     <Compile Include="Models\DappRadarAppDetails.cs" />
     <Compile Include="Models\MagicStoreAppDetails.cs" />
