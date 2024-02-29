@@ -17,7 +17,7 @@ namespace AppStoreScarpper.Utilities
             {
                 if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2)) return string.Empty;
                 var start = strsource.IndexOf(str1, 0, StringComparison.Ordinal) + str1.Length;
-                var end = strsource.IndexOf(str2, 0, StringComparison.Ordinal);
+                var end = strsource.IndexOf(str2,start, StringComparison.Ordinal);
                 if (end < 0 || start < 0) return string.Empty;
                 return strsource.Substring(start, end - start);
 
