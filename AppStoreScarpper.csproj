@@ -187,6 +187,7 @@
     <Compile Include="Requests\WebHelper.cs" />
     <Compile Include="ResponseHandler\DappHomeResponseHandler.cs" />
     <Compile Include="ResponseHandler\DappRadarAppDetailsResponseHandler.cs" />
+    <Compile Include="ResponseHandler\DatatInsertedResponseHandler.cs" />
     <Compile Include="ResponseHandler\MagicStoreAppDetailsresponseHandler.cs" />
     <Compile Include="ResponseHandler\MagicStoreHomeResponseHandler.cs" />
     <Compile Include="ResponseHandler\ResponseHandler.cs" />

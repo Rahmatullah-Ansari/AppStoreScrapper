@@ -16,6 +16,7 @@ namespace AppStoreScarpper.StartUp
     {
         JsonParser parser = JsonParser.GetInstance;
         public List<string> AllAppsLinks = new List<string>();
+        public List<MagicStoreAppDetails> AllApps= new List<MagicStoreAppDetails>();
         public async Task StartScrapping(string inputType="" )
         {
             if (inputType == Constants.MagicStoreUrl)
@@ -71,6 +72,7 @@ namespace AppStoreScarpper.StartUp
         }
         public async Task startScrappingForMagicStore(string url)
         {
+            Console.WriteLine("Scrapper process has been started For MagicStore !!!!");
             var httpHelper = new HttpHelper();
             var requestParamters = httpHelper.GetRequestParameter();
             setHeaderForMagicStore(requestParamters);
@@ -103,6 +105,8 @@ namespace AppStoreScarpper.StartUp
                             AllAppsLinks.Add("https://magic.store/app/" + AppId);
                     }
                 }
+                Console.WriteLine($"Total {AllAppsLinks.Count} No of App Links Has Been Found.. !!!!");
+
                 await FinalProcess(AllAppsLinks, httpHelper);
             }
             catch (Exception e)
@@ -120,11 +124,13 @@ namespace AppStoreScarpper.StartUp
                 var appResponse = new MagicStoreAppDetailsresponseHandler(response);
                 if(appResponse.Success&&appResponse.appDetails!=null)
                 {
-                   var finalresp=httpHelper2.PostRequest(Constants.ServerAPIUrl,Constants.getPostData(appResponse.appDetails));
+                   var finalresp=new DatatInsertedResponseHandler(httpHelper2.PostRequest(Constants.ServerAPIUrl,Constants.getPostData(appResponse.appDetails)));
+                    if (finalresp.Success)
+                        AllApps.Add(appResponse.appDetails);
                 }
-            }
-            
 
+            }
+            Console.WriteLine($"Total {AllApps.Count} No of App Details  Has Inserted SuccessFully.. !!!!");
         }
         public void SetHeadersForServerAPI(IRequestParameters requestParameters)
         {

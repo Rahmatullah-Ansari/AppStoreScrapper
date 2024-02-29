@@ -26,7 +26,7 @@ namespace AppStoreScarpper
                     {
                         await startup.StartScrapping(Constants.DappRadarUrl);
                     });
-                    Console.WriteLine("Processed complete, please start again after 10 seconds!");
+                    Console.WriteLine("Process SuccessFully completed..!!!");
                     await Task.Delay(1000 * 10 * 1);
                 }
                 catch (Exception e)
