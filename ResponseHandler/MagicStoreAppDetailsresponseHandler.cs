@@ -13,47 +13,45 @@ namespace AppStoreScarpper.ResponseHandler
 {
     public  class MagicStoreAppDetailsresponseHandler: ResponseHandler
     {
+        public readonly JsonHandler handler = JsonHandler.GetInstance;
         public MagicStoreAppDetailsresponseHandler(IResponseParameter responseParameter):base(responseParameter)
         {
-
+            appDetails=new MagicStoreAppDetails();
             if (responseParameter == null || string.IsNullOrEmpty(responseParameter.Response)) return;
             try
             {
                 Success = true;
-                JsonHandler handler = null;
                 if (!responseParameter.Response.IsValidJson())
                 {
-                    var decodedResponse = ConstantHelpDetails.GetUtilityBetween(responseParameter.Response, "{\"state\":{\"mutations\":", "]");
-                    decodedResponse = "{\"state\":{\"mutations\":" + decodedResponse;
+                    var decodedResponse = ConstantHelpDetails.GetUtilityBetween(responseParameter.Response, "<script>self.__next_f.push([1,\"26:[\\\"$\\\",\\\"$L15\\\",null,", "]\\n\"])</script>").Replace("\\\"", "\"").Replace("\\\\", "\\");
+                    //decodedResponse = "{\"state\":{\"mutations\":" + decodedResponse;
                     handler = new JsonHandler(decodedResponse);
                 }
                 else
-                {
                     handler = new JsonHandler(responseParameter.Response);
-                }
-                
-                var data = handler.GetJToken("state","queries",0,"state","data");
-                if (data.HasValues)
-                {
-                  var  handler1=new JsonHandler(data);
-                    foreach (var token in data)
+                var data = handler.GetJToken( "state","queries",0,"state","data");
+                if (!data.HasValues)
+                    data= handler.GetJToken("state", "queries", 2, "state", "data");
+                 var handler1 = new JsonHandler(data);
+                foreach (var token in data)
                     {
-                        appDetails.AppName = handler.GetElementValue("aapName");
-                        appDetails.ShortDescription = handler.GetElementValue("shortDescription");
-                        appDetails.LongDescription = handler.GetElementValue("longDescription");
-                        appDetails.Likes = handler.GetElementValue("likes");
-                        appDetails.Link = handler.GetElementValue("link");
-                        appDetails.AppRating = handler.GetElementValue("rating");
-                        appDetails.Downloads = handler.GetElementValue("downloads");
-
+                    var appAttributes = handler1.GetJToken("attributes");
+                    if(appAttributes.HasValues)
+                    {
+                            appDetails.AppName = handler1.GetElementValue("attributes", "appName");
+                            appDetails.ShortDescription = handler1.GetElementValue("attributes", "shortDescription");
+                            appDetails.LongDescription = handler1.GetElementValue("attributes", "longDescription");
+                            appDetails.Likes = handler1.GetElementValue("attributes", "likes");
+                            appDetails.Link = handler1.GetElementValue("attributes", "link");
+                            appDetails.AppRating = handler1.GetElementValue("attributes", "rating");
+                            appDetails.Downloads = handler1.GetElementValue("attributes", "downloads");
+                        
                     }
-
-                }
+                    }
             }
             catch (Exception ex)
             {
             }
-            appDetails = new MagicStoreAppDetails();
 
         }
         public bool HasMoreResult { get; set; }

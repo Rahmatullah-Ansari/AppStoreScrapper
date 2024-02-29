@@ -9,7 +9,7 @@ namespace AppStoreScarpper.ResponseHandler
 {
     public  class ResponseHandler
     {
-        protected readonly IResponseParameter Response;
+        protected IResponseParameter Response;
         protected readonly JObject RespJ;
         public readonly JsonParser parser = JsonParser.GetInstance;
         public bool Success { get; protected set; }
