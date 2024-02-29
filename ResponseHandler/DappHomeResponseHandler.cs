@@ -10,10 +10,9 @@ namespace AppStoreScarpper.ResponseHandler
         {
             if (responseParameter == null || string.IsNullOrEmpty(responseParameter.Response)) return;
 
-
-            AppDetails = new List<DappRadarAppDetails>();
+            AppDetailslist = new List<DappRadarAppDetails>();
         }
         public bool HasMoreResult { get; set; }
-        public List<DappRadarAppDetails> AppDetails { get; set; }
+        public List<DappRadarAppDetails> AppDetailslist { get; set; }
     }
 }
