@@ -321,12 +321,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5BC1BEF5F2B643C29CF4BA30A06EB232"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5DFB8F62F01240D5A919404AC52BC3DA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -395,12 +389,6 @@
         {
         "MsmKey" = "8:_6B5C03627076591D6471582EED19A6C1"
         "OwnerKey" = "8:_A90131D0A11A2467982DB9825280B775"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6D5E681AA7934F4BAFF8EFD74A162965"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1829,26 +1817,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5BC1BEF5F2B643C29CF4BA30A06EB232"
-            {
-            "SourcePath" = "8:..\\robot.ico"
-            "TargetName" = "8:robot.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_5A4816DD3A834F95BBBA4D0FB5D4BC13"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5DFB8F62F01240D5A919404AC52BC3DA"
             {
             "SourcePath" = "8:..\\robot.ico"
@@ -1960,26 +1928,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D5E681AA7934F4BAFF8EFD74A162965"
-            {
-            "SourcePath" = "8:..\\robot.ico"
-            "TargetName" = "8:robot.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_711335086856413C896FE48833295904"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_76D2AC3B81ECF749FA93C557C791830E"
@@ -2783,7 +2731,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AppStoreScraper"
         "ProductCode" = "8:{A5EE9E8F-7449-4FC4-A3BC-65950AF53DB5}"
-        "PackageCode" = "8:{FDE3EB31-7048-4E29-9157-1CD50E3C0596}"
+        "PackageCode" = "8:{2E8C16E7-83CC-41A3-B2D0-2ED8CB2049EB}"
         "UpgradeCode" = "8:{D2467952-723C-4415-87E2-DEC9DBC7B0D0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -2928,7 +2876,7 @@
             "Target" = "8:_D218E57C084745BA903B7BBE0F5B0340"
             "Folder" = "8:_711335086856413C896FE48833295904"
             "WorkingFolder" = "8:_5CD47F7F4C004B9CB93EB0E11E570AE4"
-            "Icon" = "8:"
+            "Icon" = "8:_5DFB8F62F01240D5A919404AC52BC3DA"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B6169E6987B8480D9569EC8F53691D79"
@@ -2942,7 +2890,7 @@
             "Target" = "8:_D218E57C084745BA903B7BBE0F5B0340"
             "Folder" = "8:_5A4816DD3A834F95BBBA4D0FB5D4BC13"
             "WorkingFolder" = "8:_5CD47F7F4C004B9CB93EB0E11E570AE4"
-            "Icon" = "8:"
+            "Icon" = "8:_5DFB8F62F01240D5A919404AC52BC3DA"
             "Feature" = "8:"
             }
         }
