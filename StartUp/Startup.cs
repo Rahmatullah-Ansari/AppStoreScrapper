@@ -12,12 +12,15 @@ using System.Threading.Tasks;
 
 namespace AppStoreScarpper.StartUp
 {
-   public class Startup
+
+    public class Startup
     {
         JsonParser parser = JsonParser.GetInstance;
+        public List<string> AllSeeAllLinks = new List<string>();
         public List<string> AllAppsLinks = new List<string>();
-        public List<MagicStoreAppDetails> AllApps= new List<MagicStoreAppDetails>();
-        public async Task StartScrapping(string inputType="" )
+        public HashSet<string> AllAppsName = new HashSet<string>();
+        public List<MagicStoreAppDetails> AllApps = new List<MagicStoreAppDetails>();
+        public async Task StartScrapping(string inputType = "")
         {
             if (inputType == Constants.MagicStoreUrl)
                 await startScrappingForMagicStore(inputType);
@@ -29,7 +32,7 @@ namespace AppStoreScarpper.StartUp
         {
             requestParameters.KeepAlive = true;
             requestParameters.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36";
-           
+
             requestParameters.ContentType = "text/html; charset=utf-8";
             ; requestParameters.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7";
 
@@ -77,7 +80,12 @@ namespace AppStoreScarpper.StartUp
             var requestParamters = httpHelper.GetRequestParameter();
             setHeaderForMagicStore(requestParamters);
             var response = new MagicStoreHomeResponseHandler(httpHelper.GetRequest(url));
-            await GetAllDetailsFromLinksForMagicStore(response.SeeAllLinks,httpHelper);
+            AllSeeAllLinks.AddRange(response.SeeAllLinks);
+            response = new MagicStoreHomeResponseHandler(httpHelper.GetRequest(url + "apps/"));
+            AllSeeAllLinks.AddRange(response.SeeAllLinks);
+            response = new MagicStoreHomeResponseHandler(httpHelper.GetRequest(url + "games/"));
+            AllSeeAllLinks.AddRange(response.SeeAllLinks);
+            await GetAllDetailsFromLinksForMagicStore(AllSeeAllLinks, httpHelper);
         }
         public async Task startScrappingForDappRadar(string url)
         {
@@ -93,16 +101,21 @@ namespace AppStoreScarpper.StartUp
                 foreach (var link in links)
                 {
                     var response = httpHelper.GetRequest(link);
-                    var jsonString = ConstantHelpDetails.GetUtilityBetween(response.Response, "<script>self.__next_f.push([1,\"f:[\\\"$\\\",\\\"$L17\\\",null,", "]\\n\"])</script>");
-
-                    JObject JsonData = parser.ParseJsonToJObject(jsonString.Replace("\\\"", "\"").Replace("\\\\", "\\"));
-                    var Appsdata = parser.GetJTokenValue(JsonData, "state", "queries", 2, "state", "data", "apps");
-                    var AppsDetails = parser.GetJArrayElement(Appsdata);
-                    foreach (var AppDetail in AppsDetails)
+                    var jsonString = ConstantHelpDetails.GetUtilityBetween(response.Response, "<script>self.__next_f.push([1,\"f:[\\\"$\\\",\\\"$L17\\\",null,", "]\\n\"])</script>").Replace("\\\"", "\"").Replace("\\\\", "\\");
+                    if (jsonString.IsValidJson())
                     {
-                        var AppId = parser.GetJTokenValue(AppDetail, "attributes", "appId");
-                        if (!string.IsNullOrEmpty(AppId))
-                            AllAppsLinks.Add("https://magic.store/app/" + AppId);
+                        JObject JsonData = parser.ParseJsonToJObject(jsonString);
+                        var Appsdata = parser.GetJTokenValue(JsonData, "state", "queries", 2, "state", "data", "apps");
+                        var AppsDetails = parser.GetJArrayElement(Appsdata);
+                        foreach (var AppDetail in AppsDetails)
+                        {
+                            var AppId = parser.GetJTokenValue(AppDetail, "attributes", "appId");
+                            if (!string.IsNullOrEmpty(AppId) && !AllAppsLinks.Any(X => X.Contains(AppId)))
+                            {
+                                AllAppsName.Add(AppId);
+                                AllAppsLinks.Add("https://magic.store/app/" + AppId);
+                            }
+                        }
                     }
                 }
                 Console.WriteLine($"Total {AllAppsLinks.Count} No of App Links Has Been Found.. !!!!");
@@ -122,9 +135,9 @@ namespace AppStoreScarpper.StartUp
             {
                 var response = httpHelper.GetRequest(link);
                 var appResponse = new MagicStoreAppDetailsresponseHandler(response);
-                if(appResponse.Success&&appResponse.appDetails!=null)
+                if (appResponse.Success && appResponse.appDetails != null)
                 {
-                   var finalresp=new DatatInsertedResponseHandler(httpHelper2.PostRequest(Constants.ServerAPIUrl,Constants.getPostData(appResponse.appDetails)));
+                    var finalresp = new DatatInsertedResponseHandler(httpHelper2.PostRequest(Constants.ServerAPIUrl, Constants.getPostData(appResponse.appDetails)));
                     if (finalresp.Success)
                         AllApps.Add(appResponse.appDetails);
                 }
