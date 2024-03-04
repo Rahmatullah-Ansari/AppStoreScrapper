@@ -21,13 +21,13 @@ namespace AppStoreScarpper.Models
         public string AppTitle { get; set; }
         public string AppAuthor { get; set; }
         public string Logo { get; set; }
-        public List<string> Vedios { get; set; }
-        public List<string> Images { get; set; }
-        public List<string> Gifs { get; set; }
-        public List<string> Categories { get; set; }
-        public List<string> tags { get; set; }
-        public SocialLinks socialLink { get; set; }
-        public List<AppReviews> appReviews { get; set; }
+        public List<string> Vedios { get; set; }=new List<string>();
+        public List<string> Images { get; set; }= new List<string>();
+        public List<string> Gifs { get; set; } = new List<string>();
+        public List<string> Categories { get; set; }=new List<string>();
+        public List<string> tags { get; set; } = new List<string>();
+        public SocialLinks socialLink { get; set; }=new SocialLinks();
+        public List<AppReviews> appReviews { get; set; }=new List<AppReviews>();
 
     }
 }

@@ -2,9 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppStoreScarpper.Utilities
 {
@@ -33,6 +30,17 @@ namespace AppStoreScarpper.Utilities
                 Console.WriteLine(ex.ToString());
                 return false;
             }
+        }
+        public static void LoopEach<T>(this IEnumerable<T> items, Action<T> action)
+        {
+            foreach (var item in items)
+                try
+                {
+                    action(item);
+                }
+                catch (Exception)
+                {
+                }
         }
     }
 }

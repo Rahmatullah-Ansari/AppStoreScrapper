@@ -1,13 +1,8 @@
 ﻿using AppStoreScarpper.Interface;
 using AppStoreScarpper.Models;
 using AppStoreScarpper.Utilities;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace AppStoreScarpper.ResponseHandler
 {
@@ -53,18 +48,12 @@ namespace AppStoreScarpper.ResponseHandler
                         appDetails.AppTitle = handler1.GetElementValue("attributes", "title");
                     }
                     var medias = handler1.GetJToken("media");
-                    foreach (var media in medias)
+                    if(medias != null && medias.HasValues)
                     {
-                        var mediaHandler = new JsonHandler(media);
-                        var mediaId = mediaHandler.GetElementValue("attributes", "file");
-                        try
+                        medias.LoopEach(media =>
                         {
-                            var decoded = ConstantHelpDetails.Base64Encode(mediaId);
-                        }
-                        catch (Exception e)
-                        {
-                        }
-
+                            appDetails.Images.Add(ConstantHelpDetails.GetImageUrl(parser.GetJTokenValue(media, "attributes", "file")));
+                        });
                     }
                 }
                 var socialData = handler1.GetJToken("socials");

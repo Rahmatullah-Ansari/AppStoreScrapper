@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace AppStoreScarpper.Utilities
 {
-   public class ConstantHelpDetails
+    public class ConstantHelpDetails
     {
         public static Random ObjRandom { get; } = new Random(Guid.NewGuid().GetHashCode());
         public static string GetUtilityBetween(string strsource, string str1, string str2)
@@ -73,10 +70,21 @@ namespace AppStoreScarpper.Utilities
         {
             return Encoding.UTF8.GetString(Convert.FromBase64String(base64EncodedData));
         }
-
+        public static string ImageUrlConst => "";
         public static string Base64Encode( string plainText)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(plainText));
+        }
+        public static string GetImageUrl(string FileID)
+        {
+            try
+            {
+                return $"{ImageUrlConst}{Base64Encode(FileID)}";
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
     }
 }
