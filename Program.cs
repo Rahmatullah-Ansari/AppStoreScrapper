@@ -12,9 +12,6 @@ namespace AppStoreScarpper
             Console.WriteLine("Scrapper process has been started!");
             try
             {
-                // var metricServer = new MetricServer(Constants.Server, Constants.Port);
-                // metricServer.Start();
-
                 try
                 {
                     var startup = new Startup();
@@ -22,10 +19,10 @@ namespace AppStoreScarpper
                     {
                         await startup.StartScrapping(Constants.MagicStoreUrl);
                     });
-                    await Task.Run(async () =>
-                    {
-                        await startup.StartScrapping(Constants.DappRadarUrl);
-                    });
+                    //await Task.Run(async () =>
+                    //{
+                    //    await startup.StartScrapping(Constants.DappRadarUrl);
+                    //});
                     Console.WriteLine("Process SuccessFully completed..!!!");
                     await Task.Delay(1000 * 10 * 1);
                 }
