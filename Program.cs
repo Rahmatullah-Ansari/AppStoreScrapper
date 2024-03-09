@@ -2,7 +2,8 @@
 using AppStoreScarpper.Utilities;
 using System;
 using System.Threading.Tasks;
-
+[assembly: ArmDot.Client.ObfuscateControlFlow]
+[assembly: ArmDot.Client.VirtualizeCode]
 namespace AppStoreScarpper
 {
     public class Program

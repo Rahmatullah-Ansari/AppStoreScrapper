@@ -994,12 +994,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FF9B97014BC96C32DA02FCA9AEAE1B62"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D218E57C084745BA903B7BBE0F5B0340"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1165,6 +1159,12 @@
         "OwnerKey" = "8:_C6D09F09EEDB631EB8B38FF78E931E86"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FF9B97014BC96C32DA02FCA9AEAE1B62"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -1183,6 +1183,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -1199,6 +1215,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -2731,7 +2755,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AppStoreScraper"
         "ProductCode" = "8:{A5EE9E8F-7449-4FC4-A3BC-65950AF53DB5}"
-        "PackageCode" = "8:{2E8C16E7-83CC-41A3-B2D0-2ED8CB2049EB}"
+        "PackageCode" = "8:{6D2A50EE-1D76-4A5A-BAA9-68D063771196}"
         "UpgradeCode" = "8:{D2467952-723C-4415-87E2-DEC9DBC7B0D0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -3294,7 +3318,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D218E57C084745BA903B7BBE0F5B0340"
             {
-            "SourcePath" = "8:..\\obj\\Release\\AppStoreScarpper.exe"
+            "SourcePath" = "8:..\\obj\\Debug\\AppStoreScarpper.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5CD47F7F4C004B9CB93EB0E11E570AE4"
