@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AppStoreScarpper.Enums
+﻿namespace AppStoreScarpper.Enums
 {
     public enum AppScrapperOptions
     {
-        MagicStore,
-        DAppRadar
+        MagicStore=1,
+        DAppRadar=2
     }
 }

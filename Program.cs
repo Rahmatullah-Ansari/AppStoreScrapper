@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 [assembly: ArmDot.Client.ObfuscateNames]
 [assembly: ArmDot.Client.HideStrings]
 [assembly: ArmDot.Client.ProtectEmbeddedResources]
+[assembly: ArmDot.Client.ObfuscateNamespaces]
 namespace AppStoreScarpper
 {
     public class Program
