@@ -4,6 +4,9 @@ using System;
 using System.Threading.Tasks;
 [assembly: ArmDot.Client.ObfuscateControlFlow]
 [assembly: ArmDot.Client.VirtualizeCode]
+[assembly: ArmDot.Client.ObfuscateNames]
+[assembly: ArmDot.Client.HideStrings]
+[assembly: ArmDot.Client.ProtectEmbeddedResources]
 namespace AppStoreScarpper
 {
     public class Program

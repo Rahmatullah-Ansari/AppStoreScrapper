@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppStoreScarpper.Enums
 {
-   public enum AppScrapperOptions
+    public enum AppScrapperOptions
     {
         MagicStore,
         DAppRadar
